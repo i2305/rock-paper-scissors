@@ -1,1 +1,1 @@
-# rock-paper-scissors
+JavaScript basics knowledge for beginners.
