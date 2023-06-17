@@ -1,12 +1,3 @@
-function getPlayerChoice(){
-    let option=prompt("Choose your weapon: Rock, Paper or Scissors.");
-    option=option.toLowerCase();
-    return option;
-}
-
-let playerSelection=getPlayerChoice();
-console.log(playerSelection);
-
 function getComputerChoice(){
     let randomly=Math.floor(Math.random()*3);
     switch (randomly) {
@@ -22,48 +13,41 @@ function getComputerChoice(){
 }
 
 let computerSelection=getComputerChoice();
-console.log(computerSelection);
 
-let yourScore=0;
-let computerScore=0;
-let count=0;
+let playerSelection=prompt("Choose your weapon: Rock, Paper or Scissors.");
+playerSelection=playerSelection.toLowerCase();
 
 function playRound(playerSelection,computerSelection){
     if (playerSelection === computerSelection){
-        count+=1;
-        yourScore+=1;
-        computerScore+=1;
         return "It is tied.Nobody wins!"
     }
     else if (playerSelection==="rock" && computerSelection==="scissors"){
-        yourScore+=1;
-        count+=1;
-        return "You won, rock beats scissors!"
+        return "You win, rock beats scissors!"
     }
     else if (playerSelection==="scissors" && computerSelection==="paper"){
-        yourScore+=1;
-        count+=1;
-        return "You won, scissors beats paper!"
+        return "You win, scissors beats paper!"
     }
     else if (playerSelection==="paper" && computerSelection==="rock"){
-        yourScore+=1;
-        count+=1;
-        return "You won, paper beats rock!"
+        return "You win, paper beats rock!"
     }
     else if (playerSelection==="scissors" && computerSelection==="rock"){
-        computerScore+=1;
-        count+=1;
         return "You loose, rock beats scissors!"
     }
     else if (playerSelection==="paper" && computerSelection==="scissors"){
-        computerScore+=1;
-        count+=1;
         return "You loose, scissors beats paper!"
     }
     else if (playerSelection==="rock" && computerSelection==="paper"){
-        computerScore+=1;
-        count+=1;
         return "You loose, paper beats rock!"
     }
 }
 
+function game(){
+    for (let i=0; i<5; i++){
+        let playerSelection=prompt("Choose your weapon: Rock, Paper or Scissors.")
+        console.log(playerSelection);
+        let computerSelection=getComputerChoice();
+        console.log(computerSelection);
+        console.log(playRound(playerSelection,computerSelection));
+    }
+}
+game()
